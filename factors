@@ -8,8 +8,7 @@ def factorize(num):
 	
 	while (num % f1):
 		f1 += 1
-	f2 = num // f1
-	print("{}={}*{}".format(num, f2, f1))
+	print("{:.0f}={:.0f}*{:.0f}".format(num, num / f1, f1))
 
 if len(argv) != 2:
 	exit()
