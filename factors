@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+import sys
+
+def factorize(num):
+	fact1 = 2
+	if num < 2:
+		return
+    
+	while (num % fact1):
+		fact1 += 1
+	fact2 = num // fact1
+	return (fact2 , fact1)
+
+if len(sys.argv) != 2:
+	exit("Wrong usage! Use with a file: {} {}".format(sys.argv[0], '<file_path>'))
+
+try:
+	with open(sys.argv[1]) as file:
+		line = file.readline()
+
+		while line != "":
+			num = int(line.split('\n')[0])
+			factorize(num)
+			line = file.readline()
+except:
+	pass
