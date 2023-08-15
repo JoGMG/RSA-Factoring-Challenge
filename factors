@@ -2,25 +2,30 @@
 import sys
 
 def factorize(num):
-	fact1 = 2
+	fact_1 = 2
 	if num < 2:
 		return
     
-	while (num % fact1):
-		fact1 += 1
-	fact2 = num // fact1
-	return (fact2 , fact1)
+	while (num % fact_1):
+		fact_1 += 1
+	fact_2 = num // fact_1
+	print("{}={}*{}".format(num, fact_2, fact_1))
 
 if len(sys.argv) != 2:
-	exit("Wrong usage! Use with a file: {} {}".format(sys.argv[0], '<file_path>'))
+	exit("Wrong usage! Run with a file: {} {}".format(sys.argv[0], '<file_path>'))
 
 try:
 	with open(sys.argv[1]) as file:
-		line = file.readline()
+		# line = file.readline()
 
-		while line != "":
-			num = int(line.split('\n')[0])
-			factorize(num)
-			line = file.readline()
+		# while line != "":
+		# 	num = int(line.split('\n')[0])
+		# 	factorize(num)
+		# 	line = file.readline()
+		for line in file:
+			num = line.split()
+			for i in num:
+				result = int(i)
+				factorize(result)
 except:
 	pass
