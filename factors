@@ -1,31 +1,28 @@
 #!/usr/bin/python3
-import sys
+from sys import argv
 
 def factorize(num):
-	fact_1 = 2
-	if num < 2:
-		return
     
-	while (num % fact_1):
-		fact_1 += 1
-	fact_2 = num // fact_1
-	print("{}={}*{}".format(num, fact_2, fact_1))
+	if num < 1:
+		return
+	
+	fact = 3
+	if num % 2 == 0:
+		print("{}=2*{}".format(num, num // 2))
+	else:
+		while fact * fact <= num:
+			if num % fact == 0:
+				print("{}={}*{}".format(num, fact, num // fact))
+				break
+			fact += 2
 
-if len(sys.argv) != 2:
-	exit("Wrong usage! Run with a file: {} {}".format(sys.argv[0], '<file_path>'))
+if len(argv) != 2:
+	exit("Wrong usage! Run with a file: {} {}".format(argv[0], '<file_path>'))
 
 try:
-	with open(sys.argv[1]) as file:
-		# line = file.readline()
-
-		# while line != "":
-		# 	num = int(line.split('\n')[0])
-		# 	factorize(num)
-		# 	line = file.readline()
-		for line in file:
-			num = line.split()
-			for i in num:
-				result = int(i)
-				factorize(result)
+	with open(argv[1]) as f:
+		for line in f:
+			num = int(line.split()[0])
+			factorize(num)
 except:
-	pass
+	raise(Exception)
