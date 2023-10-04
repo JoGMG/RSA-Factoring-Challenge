@@ -7,23 +7,14 @@ def factorize(num):
 		return
 	
 	fact = 3
-	fact_1 = 5
-	fact_2 = 7
-	fact_3 = 15485773
 	if num % 2 == 0:
 		print("{}=2*{}".format(num, num // 2))
 
 	elif num % fact == 0:
 		print("{}={}*{}".format(num, fact, num // fact))
-
-	elif num % fact_1 == 0:
-		print("{}={}*{}".format(num, fact_1, num // fact_1))
 	
-	elif num % fact_2 == 0:
-		print("{}={}*{}".format(num, fact_2, num // fact_2))
-
-	elif num % fact_3 == 0:
-		print("{}={}*{}".format(num, fact_3, num // fact_3))
+	elif num > 1:
+		print("{}=1*{}".format(num, num))
 
 if len(argv) != 2:
 	exit("Wrong usage! Run with a file: {} {}".format(argv[0], '<file_path>'))
